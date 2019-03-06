@@ -9,7 +9,7 @@ class Navigation extends Component {
             isOpen: false
         };
         this.handleNav = this.handleNav.bind(this);
-        this.purchaseStyle = this.purchaseStyle.bind(this);
+        this.navStyle = this.navStyle.bind(this);
     }
     // navigation menu method returns a "css" object
     navStyle = () => {
