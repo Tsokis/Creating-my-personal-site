@@ -8,10 +8,11 @@ const headerStyle = {
     padding: '25px'
 };
 
-const header = () => {
+const header = (props) => {
     return (
         <div style={headerStyle}>
             <h3>Nik Ntaf</h3>
+            <h4>{props.name}</h4>
             <h4>Lorem ipsum dolor sit.</h4>
         </div>
     )
