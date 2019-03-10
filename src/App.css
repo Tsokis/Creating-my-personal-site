@@ -8,7 +8,20 @@ body{
 }
 .nav-ul{
     list-style-type: none;
+    /*text-decoration: none;*/
+    position: absolute;
+    top: 250px;
+    left: 120px;
+    font-size: 2rem;
 }
+.nav-ul li{
+    margin-bottom: 1rem;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
+
 .footer{
     position: relative;
     width: 100%;
