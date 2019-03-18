@@ -1,10 +1,15 @@
 import React from 'react';
 import project from '../../../src/images/project.jpg'
 
+const container = {
+    padding: '15px',
+    textAlign: 'center'
+};
+
 const About = () => {
     console.log(project);
     return (
-        <section>
+        <section style={container}>
             <h3>About page</h3>
             <img src={project} alt="testaki"/>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque exercitationem ipsam mollitia necessitatibus non obcaecati repellat reprehenderit voluptates? Inventore, iure?</p>
