@@ -56,3 +56,9 @@ input[type=submit]:hover {
     background-color: #f2f2f2;
     padding: 20px;
 }
+
+.contactDiv{
+    margin-left: 2rem;
+    margin-right:2rem;
+    margin-top: 1rem;
+}
