@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import '../../App.css';
 
+const contactH3 = {
+    textAlign:"center",
+};
+//let hasError = true;
+
 class Contact extends Component {
+
     constructor(props){
         super(props);
         // Contact State
@@ -10,26 +16,39 @@ class Contact extends Component {
             lname: '',
             email: '',
             message: '',
+            hasError: null
         };
-        this.handleFormSubmit = this.handleFormSubmit.bind(this);
-        this.clearState = this.clearState.bind(this);
+    }
+    clientValidation() {
+        const { fname,lname,email,message,hasError } = this.state;
+        if (fname!=="" || lname!=="" || email !==""|| message !== "") {
+            this.setState({hasError: false});
+            console.log(`Your Response was ${fname} ${lname} ${email} ${message}`);
+        } else {
+            console.log('has error');
+            this.setState({hasError: true});
+            console.log(hasError);
+        }
     }
     handleFormSubmit( event ) {
         event.preventDefault();
+        this.clientValidation();
         console.log(this.state);
     }
     clearState(){
-        this.setState({fname: '',
+        this.setState({
+            fname: '',
             lname: '',
             email: '',
-            message: '',})
+            message: ''
+        });
     }
 
     render() {
         return (
-            <div className="container">
-                <h3>Contact</h3>
-                <div>
+            <div>
+                <h3 style={contactH3}>Contact</h3>
+                <div className="container contactDiv">
                     <form action="">
                         <label>First Name</label>
                         <input type="text" id="fname" name="firstname" placeholder="Your name.."
@@ -53,10 +72,11 @@ class Contact extends Component {
                         ></textarea>
                         <input type="submit" onClick={e => {
                             this.handleFormSubmit(e);
+                            //this.clientValidation();
                             this.clearState();
                          }
                         } value="Submit" />
-
+                        {this.state.hasError ? <h3>You must enter something</h3> : <h3>Form Submitted</h3>}
                     </form>
                 </div>
             </div>
