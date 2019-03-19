@@ -16,7 +16,7 @@ class Navigation extends Component {
         return {
             display: this.state.isOpen ? 'block': 'none',
             listStyleType: 'none',
-            backgroundColor: 'transparent',
+            backgroundColor: '#4C8CB5',
             //#4C8CB5
             position: 'absolute',
             textDecoration:'none',
