@@ -67,12 +67,6 @@ class Contact extends Component {
             message: ''
         });
     }
-    test(){
-        if(this.state.fname === ""||null||"undefined"){
-            console.log("Second validation Gotcha!!!")
-        }
-    };
-
 
     render() {
         return (
