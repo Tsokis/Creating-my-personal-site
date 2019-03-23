@@ -16,24 +16,46 @@ class Contact extends Component {
             lname: '',
             email: '',
             message: '',
-            hasError: null
+            hasError: null,
+            isSubmitted: false
         };
+        this.checkMessage = this.checkMessage.bind(this);
     }
+    checkMessage = () => {
+        return {
+            display: this.state.isSubmitted ? 'block': 'none'
+        }
+    };
+
     clientValidation() {
-        const { fname,lname,email,message,hasError } = this.state;
-        if (fname!=="" || lname!=="" || email !==""|| message !== "") {
+        const { fname,lname,email,message } = this.state;
+        if (fname!=="" && lname!=="" && email !=="" && message !== "") {
             this.setState({hasError: false});
             console.log(`Your Response was ${fname} ${lname} ${email} ${message}`);
         } else {
             console.log('has error');
-            this.setState({hasError: true});
-            console.log(hasError);
+            this.setState({hasError: true,isSubmitted:true});
+            if(fname ===""){
+                console.log("empty name");
+            } else if(lname === ""){
+                console.log("empty lastname");
+            }else  if(email === ""){
+                console.log("empty email")
+            }else{
+                console.log("empty message");;
+            }
         }
     }
     handleFormSubmit( event ) {
+        let letters = /^[A-Za-z]+$/;
         event.preventDefault();
         this.clientValidation();
         console.log(this.state);
+        if(this.state.fname.match(letters)) {
+            console.log('works');
+        }else{
+            alert("ooops gotcha");
+        }
     }
     clearState(){
         this.setState({
@@ -43,6 +65,12 @@ class Contact extends Component {
             message: ''
         });
     }
+    test(){
+        if(this.state.fname === ""||null||"undefined"){
+            console.log("Second validation Gotcha!!!")
+        }
+    };
+
 
     render() {
         return (
@@ -51,7 +79,7 @@ class Contact extends Component {
                 <div className="container contactDiv">
                     <form action="">
                         <label>First Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name.."
+                        <input type="text" id="fname" name="firstname" placeholder="Your name.." required={this.test()}
                                value={this.state.fname}
                                onChange={e => this.setState({ fname: e.target.value })}
                         />
@@ -72,16 +100,16 @@ class Contact extends Component {
                         ></textarea>
                         <input type="submit" onClick={e => {
                             this.handleFormSubmit(e);
-                            //this.clientValidation();
                             this.clearState();
                          }
                         } value="Submit" />
-                        {this.state.hasError ? <h3>You must enter something</h3> : <h3>Form Submitted</h3>}
+                        {this.state.hasError ? <h3>You must enter something</h3> : <h3 style={this.checkMessage()}>Form Submitted</h3>}
                     </form>
                 </div>
             </div>
         )
     }
 }
+
 
 export default Contact;
