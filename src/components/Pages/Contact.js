@@ -77,20 +77,15 @@ class Contact extends Component {
                         <Input label="I'am a Test Component" type="text" name="test" id="test" placeholder="Your test" value={this.state.test}
                         onChange={e=> this.setState({test:e.target.value})}
                         />
-                        <label>First Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name.."
-                               value={this.state.fname}
-                               onChange={e => this.setState({ fname: e.target.value })}
+                        <Input label="First Name" type="text" name="firstname" id="fname" placeholder="Your Name..." value={this.state.fname}
+                               onChange={e=> this.setState({fname:e.target.value})}
                         />
-                        <label>Last Name</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Your last name.."
-                               value={this.state.lname}
-                               onChange={e => this.setState({ lname: e.target.value })}
+                        <Input label="Last Name" type="text" name="lastname" id="lname" placeholder="Your Last Name..." value={this.state.lname}
+                               onChange={e=> this.setState({lname:e.target.value})}
                         />
-                        <label>Email</label>
-                        <input type="email" id="email" name="email" placeholder="Your email"
-                               value={this.state.email}
-                               onChange={e => this.setState({ email: e.target.value })}
+
+                        <Input label="Email" type="email" name="email" id="email" placeholder="Your Email..." value={this.state.email}
+                               onChange={e=> this.setState({email:e.target.value})}
                         />
                         <label>Subject</label>
                         <textarea id="subject" name="subject" placeholder="Write something.."
