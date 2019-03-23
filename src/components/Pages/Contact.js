@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css';
+import Input from './components/input';
 
 const contactH3 = {
     textAlign:"center",
@@ -16,6 +17,7 @@ class Contact extends Component {
             lname: '',
             email: '',
             message: '',
+            test:'',
             hasError: null,
             isSubmitted: false
         };
@@ -78,8 +80,11 @@ class Contact extends Component {
                 <h3 style={contactH3}>Contact</h3>
                 <div className="container contactDiv">
                     <form action="">
+                        <Input label="I'am a Test Component" type="text" name="test" id="test" placeholder="Your test" value={this.state.test}
+                        onChange={e=> this.setState({test:e.target.value})}
+                        />
                         <label>First Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name.." required={this.test()}
+                        <input type="text" id="fname" name="firstname" placeholder="Your name.."
                                value={this.state.fname}
                                onChange={e => this.setState({ fname: e.target.value })}
                         />
