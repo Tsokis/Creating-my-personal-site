@@ -22,7 +22,7 @@ class Navigation extends Component {
             textDecoration:'none',
             top: '0',
             right: '0',
-            width: '30%',
+            width: '15%',
             height: '100vh'
         }
     };
