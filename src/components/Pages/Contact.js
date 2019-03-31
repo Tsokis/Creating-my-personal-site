@@ -5,7 +5,10 @@ import Input from './components/input';
 const contactH3 = {
     textAlign:"center",
 };
-//let hasError = true;
+const h3Background = {
+    // backgroundColor: ""
+    color:"red"
+};
 
 class Contact extends Component {
 
@@ -56,7 +59,7 @@ class Contact extends Component {
         if(this.state.fname.match(letters)) {
             console.log('works');
         }else{
-            alert("ooops gotcha");
+            console.log("ooops gotcha");
         }
     }
     clearState(){
@@ -70,23 +73,26 @@ class Contact extends Component {
 
     render() {
         return (
-            <div>
+            <section>
                 <h3 style={contactH3}>Contact</h3>
                 <div className="container contactDiv">
                     <form action="">
                         <Input label="I'am a Test Component" type="text" name="test" id="test" placeholder="Your test" value={this.state.test}
                         onChange={e=> this.setState({test:e.target.value})}
                         />
+                        {this.state.fname === ""?<h3 style={h3Background}>Please Enter a Name *</h3>: ""}
                         <Input label="First Name" type="text" name="firstname" id="fname" placeholder="Your Name..." value={this.state.fname}
                                onChange={e=> this.setState({fname:e.target.value})}
                         />
+                        {this.state.lname === ""?<h3 style={h3Background}>Please Enter a Last Name *</h3>: ""}
                         <Input label="Last Name" type="text" name="lastname" id="lname" placeholder="Your Last Name..." value={this.state.lname}
                                onChange={e=> this.setState({lname:e.target.value})}
                         />
-
+                        {this.state.email === ""?<h3 style={h3Background}>Please Enter an Email Address *</h3>: ""}
                         <Input label="Email" type="email" name="email" id="email" placeholder="Your Email..." value={this.state.email}
                                onChange={e=> this.setState({email:e.target.value})}
                         />
+                        {this.state.message === ""?<h3 style={h3Background}>Enter the your Contact Message *</h3>: ""}
                         <label>Subject</label>
                         <textarea id="subject" name="subject" placeholder="Write something.."
                                   onChange={e => this.setState({ message: e.target.value })}
@@ -100,7 +106,7 @@ class Contact extends Component {
                         {this.state.hasError ? <h3>You must enter something</h3> : <h3 style={this.checkMessage()}>Form Submitted</h3>}
                     </form>
                 </div>
-            </div>
+            </section>
         )
     }
 }
