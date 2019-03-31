@@ -10,11 +10,11 @@ const headerStyle = {
 
 const header = (props) => {
     return (
-        <div style={headerStyle}>
-            <h3>Nik Ntaf</h3>
-            <h4>{props.name}</h4>
-            <h4>Lorem ipsum dolor sit.</h4>
-        </div>
+        <header style={headerStyle}>
+            <h3>{props.fullName}</h3>
+            <h4>{props.occupation}</h4>
+            <p>{props.someSortMessage}</p>
+        </header>
     )
 };
 
