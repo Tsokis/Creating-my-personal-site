@@ -20,7 +20,7 @@ class App extends Component {
             <Route exact path="/"  render={props => (
                 <React.Fragment>
                   <div>
-                    <Header name="nikos" />
+                    <Header fullName="Nik Ntaf" occupation="virtual dom" someSortMessage="Lorem ipsum dolor sit." />
                     <p><strong>Home content</strong></p>
                   </div>
                 </React.Fragment>
