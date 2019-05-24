@@ -1,27 +1,32 @@
 {
   "name": "nik-ntaf",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "font-awesome": "^4.7.0",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5"
-  },
+  "version": "1.0.0",
+  "description": "back end node express front end react",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client ",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tsokis/Creating-my-personal-site.git"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "author": "Nik Ntaf",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tsokis/Creating-my-personal-site/issues"
+  },
+  "homepage": "https://github.com/Tsokis/Creating-my-personal-site#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.0",
+    "express": "^4.17.0",
+    "mongoose": "^5.5.11"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
 }
